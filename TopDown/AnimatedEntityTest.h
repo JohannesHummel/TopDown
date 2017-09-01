@@ -8,5 +8,7 @@ public:
 	
 	void onCreate();
 	void update(float deltaTime);
+private:
+	void move(float deltaTime);
 };
 
