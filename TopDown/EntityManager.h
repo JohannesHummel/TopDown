@@ -8,8 +8,12 @@
 #include <SFML\Window.hpp>
 #include "Framework.h"
 #include "TiledMap.h"
+#include "TileMap.h"
 
 class BaseEntityExp;
+
+
+
 
 class EntityManager
 {
@@ -22,11 +26,14 @@ public:
 
 	Coord fromTiledToWorldCoordinates(unsigned int xCoord, unsigned int yCoord, unsigned int widthAmountOfTiles, unsigned int heightAmountOfTiles);
 
+	void setTileMap(TileMap* tM);
+
 private:
 
 	void render();
 	void update(float deltaTime);
 
+	//linked list instead vector ? 
 	std::map<std::string, std::vector<std::shared_ptr<BaseEntityExp>>> entities;
 
 	struct Comperator
@@ -40,5 +47,8 @@ private:
 
 	TiledMap tiledForeground;
 	TiledMap tiledBackground;
+
+
+	TileMap* tileMap;
 };
 

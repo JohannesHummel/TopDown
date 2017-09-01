@@ -8,6 +8,9 @@
 
 
 #include"AnimatedEntityTest.h"
+#include "TiledEntityTest.h"
+
+#include "TileMap.h"
 
 Framework::Framework()
 {
@@ -26,6 +29,7 @@ void Framework::run()
 	TextureManager textureManager;
 	textureManager.loadTexture("images/dragonAnim.png", "dragon");
 	textureManager.loadTexture("images/bild.jpg", "stone");
+	textureManager.loadTexture("images/tileset.png", "tileset");
 	EntityManager entityManager(*window);
 	std::shared_ptr<Player> p1(std::make_shared<Player>(*textureManager.getTexture("dragon"), sf::Vector2f(1, 1),&entityManager));
 	p1->setRenderPos(2);
@@ -43,15 +47,46 @@ void Framework::run()
 
 	std::vector<sf::IntRect> walkDown;
 	walkDown.push_back(sf::IntRect(0, 0, 100, 100));
-	walkDown.push_back(sf::IntRect(100, 0, 100, 100));
+	walkDown.push_back(sf::IntRect(0, 0, 100, 100));
 	walkDown.push_back(sf::IntRect(200, 0, 100, 100));
 	aet->storeAnimation("walkDown", walkDown);
 	aet->setDefault(sf::IntRect(0, 0, 100, 100));
 	aet->setSwitchAnimationTime(200);
-	aet->setTiledPosition(1, 1, 30, 30);
+	aet->setPosition(100, 100);
+	aet->setWidthHeight(200, 200);
 	entityManager.insertEntity(aet);
 	//entityManager.insertEntity(p1);
 	//entityManager.insertEntity(p2);
+
+
+
+	std::vector<sf::IntRect> subtexrects;
+	subtexrects.push_back(sf::IntRect(0,0,17,17));
+	subtexrects.push_back(sf::IntRect(17, 0,17,17));
+	subtexrects.push_back(sf::IntRect(0, 0,17,17));
+	subtexrects.push_back(sf::IntRect(34, 34,17,17));
+	subtexrects.push_back(sf::IntRect(0, 0,17,17));
+	subtexrects.push_back(sf::IntRect(34, 17,17,17));
+	//subtexrects.push_back(sf::IntRect(0, 0,17,17));
+	//subtexrects.push_back(sf::IntRect(0, 0,17,17));
+	//subtexrects.push_back(sf::IntRect(0, 0,17,17));
+
+	TileMap tilemap(*textureManager.getTexture("tileset"),sf::Vector2u(3,2),200, subtexrects);
+	entityManager.setTileMap(&tilemap);
+
+	std::shared_ptr<TiledEntityTest> tet(std::make_shared<TiledEntityTest>());
+	tet->setEntityManager(&entityManager);
+	tet->setTag("TET");
+	tet->setTileMapArea(sf::IntRect(0, 0, 1, 2));
+	std::vector<std::vector<sf::IntRect>> subTextures;
+	std::vector<sf::IntRect> v1;
+	v1.push_back(sf::IntRect(17, 17, 17, 17));
+	v1.push_back(sf::IntRect(17, 17, 17, 17));
+	subTextures.push_back(v1);
+	//subTextures.push_back(v1);
+	tet->setSubTextures(subTextures);
+
+	entityManager.insertEntity(tet);
 
 	float oldTime = 0;
 	float newTime = 0;
@@ -86,6 +121,7 @@ void Framework::run()
 		
 		window->clear();
 		entityManager.update(deltaTime);
+		window->draw(tilemap);
 		entityManager.render();
 		window->display();
 	}

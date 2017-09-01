@@ -55,6 +55,7 @@ public:
 	virtual void masterUpdate(float deltaTime);
 
 	virtual bool isRenderable();
+	virtual bool isTiled();
 	virtual sf::Sprite* getSprite();
 	virtual int getRenderPos();
 

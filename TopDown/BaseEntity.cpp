@@ -101,6 +101,11 @@ bool BaseEntityExp::isRenderable()
 	return false;
 }
 
+bool BaseEntityExp::isTiled()
+{
+	return false;
+}
+
 sf::Sprite* BaseEntityExp::getSprite()
 {
 	return nullptr;
