@@ -106,29 +106,6 @@ tinyxml2::XMLDocument* AnimatedEntity::saveToFile()
 		}
 	}
 	pRoot->InsertEndChild(pElement);
-	
-	/*std::string output;
-	//////////////////////BASE ENTITY//////////////////////////////
-	output += "AnimatedEntity\n";
-	output += std::to_string(getRenderPos()) + "\n";
-	output += getTag() + "\n";
-	/////////////////////SPRITE ENTITY/////////////////////////////
-	output += std::to_string(worldPosition.x) + " " + std::to_string(worldPosition.y) + "\n";
-	output += std::to_string(getWidth()) + " " + std::to_string(getHeight()) + "\n";
-	output += getTextureName() + "\n";
-	////////////////////ANIMATED ENTITY////////////////////////////
-	output += std::to_string(switchAnimationTime) + "\n";
-	for (auto it : animationContainer)
-	{
-		output += it.first + "\n";
-		for (auto it2 : it.second)
-		{
-			output += std::to_string(it2.left) + " ";
-			output += std::to_string(it2.top) + " ";
-			output += std::to_string(it2.width) + " ";
-			output += std::to_string(it2.height) + "\n";
-		}
-	}*/
 	return xmlDoc;
 }
 

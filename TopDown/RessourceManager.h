@@ -26,16 +26,6 @@ struct DataType
 	/////////TILED ENTITY////////////
 	sf::IntRect tileMapArea;
 	std::vector<int> subTextures;
-
-	/*bool hasPosition = false;
-	
-	bool hasPositionInTiledMap = false;
-	std::array<int, 2> positionInTiledMap;
-	bool hasTexture = false;
-	
-	bool hasAnimation = false;
-	int amountOfAnimations;
-	std::vector<int> defaultSprite;*/
 };
 
 class RessourceManager

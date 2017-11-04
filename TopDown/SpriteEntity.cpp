@@ -97,17 +97,6 @@ tinyxml2::XMLDocument* SpriteEntity::saveToFile()
 	pElement = xmlDoc->NewElement("textureName");
 	pElement->SetText(getTextureName().c_str());
 	pRoot->InsertEndChild(pElement);
-	/*
-	std::string output;
-	//////////////////////BASE ENTITY//////////////////////////////
-	output += "SpriteEntity\n";
-	output += std::to_string(getRenderPos()) + "\n";
-	output += getTag() + "\n";
-	/////////////////////SPRITE ENTITY/////////////////////////////
-	output += std::to_string(worldPosition.x) + " " + std::to_string(worldPosition.y) + "\n";
-	output += std::to_string(getWidth()) + " " + std::to_string(getHeight()) + "\n";
-	output += getTextureName() + "\n";*/
-
 	return xmlDoc;
 }
 

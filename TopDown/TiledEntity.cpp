@@ -67,27 +67,5 @@ tinyxml2::XMLDocument* TiledEntity::saveToFile()
 		}
 	}
 	pRoot->InsertEndChild(pElement);
-
-/*
-	std::string output;
-	//////////////////////BASE ENTITY//////////////////////////////
-	output += "TiledEntity\n";
-	output += std::to_string(getRenderPos()) + "\n";
-	output += getTag() + "\n";
-	//////////////////////TILED ENTITY//////////////////////////////
-	output += std::to_string(tileMapArea.left) + " ";
-	output += std::to_string(tileMapArea.top) + " ";
-	output += std::to_string(tileMapArea.width) + " ";
-	output += std::to_string(tileMapArea.height) + "\n";
-	for (auto it : subTextures)
-	{
-		for (auto it2 : it)
-		{
-			output += std::to_string(it2.left) + " ";
-			output += std::to_string(it2.top) + " ";
-			output += std::to_string(it2.width) + " ";
-			output += std::to_string(it2.height) + "\n";
-		}
-	}*/
 	return xmlDoc;
 }
