@@ -1,5 +1,6 @@
 #pragma once
 #include "SpriteEntity.h"
+#include "tinyxml2.h"
 
 class AnimatedEntity : public SpriteEntity
 {
@@ -13,6 +14,10 @@ public:
 	void setDefault(sf::IntRect rect);
 	void storeAnimation(std::string key, std::vector<sf::IntRect> animations);
 	void applyAnimation(std::string key);
+
+	virtual tinyxml2::XMLDocument* saveToFile();
+	virtual void loadFromFile(const RessourceManager & ressourceManager);
+
 protected:
 	
 private:

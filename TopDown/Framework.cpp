@@ -11,6 +11,7 @@
 #include "TiledEntityTest.h"
 
 #include "TileMap.h"
+#include "RessourceManager.h"
 
 Framework::Framework()
 {
@@ -44,12 +45,29 @@ void Framework::run()
 	aet->setTexture(*textureManager.getTexture("dragon"));
 	aet->setEntityManager(&entityManager);
 
+	RessourceManager resManager;
+	std::shared_ptr<AnimatedEntityTest> saveTest(std::make_shared<AnimatedEntityTest>());
+	saveTest->setRenderPos(1);
+	saveTest->setTag("test");
+	saveTest->setTextureName("dragon");
+	saveTest->setTexture(*textureManager.getTexture("dragon"));
+	saveTest->setPosition(100, 200);
+	saveTest->setWidthHeight(300, 400);
+	saveTest->setSwitchAnimationTime(0.5);
+	saveTest->setEntityManager(&entityManager);
+	
+	
+	
 
 	std::vector<sf::IntRect> walkDown;
 	walkDown.push_back(sf::IntRect(0, 0, 100, 100));
 	walkDown.push_back(sf::IntRect(0, 0, 100, 100));
 	walkDown.push_back(sf::IntRect(200, 0, 100, 100));
 	aet->storeAnimation("walkDown", walkDown);
+	saveTest->storeAnimation("walkDown", walkDown);
+	saveTest->setDefault(sf::IntRect(0, 0, 100, 100));
+	entityManager.insertEntity(saveTest);
+	
 	aet->setDefault(sf::IntRect(0, 0, 100, 100));
 	aet->setSwitchAnimationTime(200);
 	aet->setPosition(100, 100);
@@ -59,6 +77,7 @@ void Framework::run()
 	//entityManager.insertEntity(p2);
 
 
+	resManager.writeInFile("test.xml", *saveTest);
 
 	std::vector<sf::IntRect> subtexrects;
 	subtexrects.push_back(sf::IntRect(0,0,17,17));
@@ -87,6 +106,8 @@ void Framework::run()
 	tet->setSubTextures(subTextures);
 
 	entityManager.insertEntity(tet);
+//	resManager.writeInFile("wat.xml", *tet);
+	resManager.readFromFile("test.xml");
 
 	float oldTime = 0;
 	float newTime = 0;

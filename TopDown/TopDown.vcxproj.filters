@@ -66,6 +66,12 @@
     <ClInclude Include="SceneManager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="RessourceManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp">
@@ -117,6 +123,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="RessourceManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

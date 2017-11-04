@@ -29,6 +29,7 @@
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Orientation.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="RessourceManager.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SpriteEntity.h" />
     <ClInclude Include="TextureManager.h" />
@@ -36,6 +37,7 @@
     <ClInclude Include="TiledEntityTest.h" />
     <ClInclude Include="TiledMap.h" />
     <ClInclude Include="TileMap.h" />
+    <ClInclude Include="tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedEntity.cpp" />
@@ -48,6 +50,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RessourceManager.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SpriteEntity.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -55,6 +58,7 @@
     <ClCompile Include="TiledEntityTest.cpp" />
     <ClCompile Include="TiledMap.cpp" />
     <ClCompile Include="TileMap.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

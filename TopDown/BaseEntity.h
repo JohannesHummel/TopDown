@@ -4,7 +4,11 @@
 
 #include <string>
 
+
 #include "EntityManager.h"
+#include "tinyxml2.h"
+
+class RessourceManager;
 
 class BaseEntity
 {
@@ -58,6 +62,9 @@ public:
 	virtual bool isTiled();
 	virtual sf::Sprite* getSprite();
 	virtual int getRenderPos();
+
+	virtual tinyxml2::XMLDocument* saveToFile();
+	virtual void loadFromFile(const RessourceManager & ressourceManager);
 
 	std::string& getTag();
 	void setTag(const std::string &tag);

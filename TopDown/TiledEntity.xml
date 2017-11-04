@@ -1,0 +1,10 @@
+<Root>
+    <ObjectType>TiledEntity</ObjectType>
+    <RenderPosition>0</RenderPosition>
+    <Tag>TET</Tag>
+    <tiledMapArea left="0" top="0" width="1" height="2"/>
+    <subTextures>
+        <Item left="17" top="17" width="17" height="17"/>
+        <Item left="17" top="17" width="17" height="17"/>
+    </subTextures>
+</Root>

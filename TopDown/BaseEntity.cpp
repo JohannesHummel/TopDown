@@ -1,4 +1,5 @@
 #include "BaseEntity.h"
+#include "RessourceManager.h"
 
 
 
@@ -114,6 +115,34 @@ sf::Sprite* BaseEntityExp::getSprite()
 int BaseEntityExp::getRenderPos()
 {
 	return 0;
+}
+
+tinyxml2::XMLDocument* BaseEntityExp::saveToFile()
+{
+	using namespace tinyxml2;
+	XMLDocument *xmlDoc = new XMLDocument;
+
+	XMLNode * pRoot = xmlDoc->NewElement("Root");
+	xmlDoc->InsertFirstChild(pRoot);
+
+	XMLElement * pElement = xmlDoc->NewElement("ObjectType");
+	pElement->SetText("BaseEntity");
+	pRoot->InsertEndChild(pElement);
+
+	pElement = xmlDoc->NewElement("RenderPosition");
+	pElement->SetText(getRenderPos());
+	pRoot->InsertEndChild(pElement);
+
+	pElement = xmlDoc->NewElement("Tag");
+	pElement->SetText(getTag().c_str());
+	pRoot->InsertEndChild(pElement);
+
+	return xmlDoc;
+}
+
+void BaseEntityExp::loadFromFile(const RessourceManager & ressourceManager)
+{
+	this->setTag(ressourceManager.getData().tag);
 }
 
 std::string & BaseEntityExp::getTag()

@@ -1,0 +1,12 @@
+<Root>
+    <ObjectType>AnimatedEntity</ObjectType>
+    <RenderPosition>1</RenderPosition>
+    <Tag>test</Tag>
+    <worldPosition x="100" y="200"/>
+    <size width="94" height="94"/>
+    <textureName>dragon</textureName>
+    <switchAnimationTime>0.5</switchAnimationTime>
+    <Animations>
+        <animation>walkDown            <Item left="0" top="0" width="100" height="100"/>            <Item left="0" top="0" width="100" height="100"/>            <Item left="200" top="0" width="100" height="100"/></animation>
+    </Animations>
+</Root>
